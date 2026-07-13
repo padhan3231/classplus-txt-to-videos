@@ -48,6 +48,8 @@ async def account_login(bot: Client, m: Message):
         await input_msg.delete(True)
 
         path = f"./downloads/{m.chat.id}"
+        # Yeh line add karein:
+        os.makedirs(path, exist_ok=True)
 
         try:
             with open(x, "r") as f:
