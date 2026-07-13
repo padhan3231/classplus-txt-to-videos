@@ -42,7 +42,7 @@ async def terms_han(bot: Client, m: Message):
 @bot.on_message(filters.command(["classplus"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text('Hi\n\nI am Ready to download send me a text file» ')
-    input: Message = await bot.listen(editable.chat.id)
+    input_msg: Message = await bot.listen(editable.chat.id)
     if input_msg.document:
         x = await input_msg.download()
         await input_msg.delete(True)
