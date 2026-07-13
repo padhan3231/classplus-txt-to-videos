@@ -2,5 +2,7 @@ ffmpeg
 libpulse0
 libpulse-dev
 aria2
-libsdl2-2.0-
-
+libsdl2-2.0-0
+libvorbis0a
+libogg0
+libopus0
