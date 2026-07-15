@@ -170,9 +170,9 @@ async def account_login(bot: Client, m: Message):
             if "jw-prod" in url:
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
            elif "media-cdn.classplusapp" in url:
-                # Classplus CDN WAF ko bypass karne ke liye User-Agent add kiya hai
-                cmd = f'yt-dlp -f "{ytf}" "{url}" --add-header "Referer: https://web.classplusapp.com/" --add-header "Origin: https://web.classplusapp.com/" --add-header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" -o "{name}.mp4"'
-            else:
+                # Token aur Headers ke saath command
+                my_token = "YOUR_TOKEN_HERE" 
+                cmd = f'yt-dlp -f "{ytf}" "{url}" --add-header "x-access-token: {my_token}" --add-header "Referer: https://web.classplusapp.com/" --add-header "Origin: https://web.classplusapp.com/" --add-header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" -o "{name}.mp4"'
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
