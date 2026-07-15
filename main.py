@@ -167,13 +167,17 @@ async def account_login(bot: Client, m: Message):
             else:
                 ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
 
-            if "jw-prod" in url:
+           if "jw-prod" in url:
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
-           elif "media-cdn.classplusapp" in url:
-                # Token aur Headers ke saath command
+            elif "media-cdn.classplusapp" in url:
                 my_token = "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MTg1NDIzMDgzLCJvcmdJZCI6Mzc0Njk4LCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTgyNDk4NTUzNDUiLCJuYW1lIjoiU3VyZXNoIiwiZW1haWwiOiI3MWI1NTQ3MWQxMmI0MmJjOTYwZWE0ZjU3ZTdlZTdhMEBnbWFpbC5jb20iLCJpc0ludGVybmF0aW9uYWwiOjAsImRlZmF1bHRMYW5ndWFnZSI6IkVOIiwiY291bnRyeUNvZGUiOiJJTiIsImNvdW50cnlJU08iOiI5MSIsInRpbWV6b25lIjoiR01UKzU6MzAiLCJpc0RpeSI6dHJ1ZSwib3JnQ29kZSI6InJpZW10IiwiaXNEaXlTdWJhZG1pbiI6MCwiZmluZ2VycHJpbnRJZCI6IjcxYWRhZTI4ZmIwNDRlMTNhZjZiOTU1YzE3MDNjZDRjIiwiaWF0IjoxNzg0MTI3MzkzLCJleHAiOjE3ODQ3MzIxOTN9.RfL_Yb2ONWFnuIwVcmoXSB9zZ49mAOZQBqB6uFDCXzY-2Kzwck8u5HKW3bWguqpQ" 
                 cmd = f'yt-dlp -f "{ytf}" "{url}" --add-header "x-access-token: {my_token}" --add-header "Referer: https://web.classplusapp.com/" --add-header "Origin: https://web.classplusapp.com/" --add-header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" -o "{name}.mp4"'
-            try:  
+            else:
+                cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
+                
+            # Ab yahan se aapka try block shuru hona chahiye
+            try:
+                # ... baki ka code  
                 
                 cc = f'** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.mkv\n**Batch »** {raw_text0}\n\n'
                 cc1 = f'** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.pdf \n**Batch »** {raw_text0}\n\n'
